@@ -1,0 +1,27 @@
+<?php 
+$dir = 'djphellowsphonk/';
+$scan = scandir($dir);
+$size = sizeof($scan);
+regen:
+$random = rand(1, $size);
+$randomFile = $scan[$random];
+if( $randomFile == 'djphellowsphonk/..' || $randomFile == 'djphellowsphonk/.' ) 
+    goto regen;
+$fileLocation = $dir. $randomFile;
+$explode = explode(".", $randomFile);
+$extension = end($explode);
+?>
+<title>28 HOURS OF PLAYING TRILL BY DJ PHELLOWSPHONK</title>
+
+</head>
+<body><br><br><br><br>
+    <center><br><br>Random mode playing out of 28 hours : GENRE TRILL : Dj PHELLOWSPHONK
+    <br><br>
+    <br>
+    <?php echo $fileLocation; ?>
+<br><br>
+    <audio controls loop autoplay>
+        <source src="<?php echo $fileLocation; ?>" type="audio/<?php echo $extension; ?>"></source>
+    </audio>
+</body><br><br><br><input type="button" value="I Need New Tracks" onClick="window.location.href=window.location.href">
+</html>
